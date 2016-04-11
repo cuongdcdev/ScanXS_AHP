@@ -1,0 +1,4 @@
+[2016-03-21 09:53:54,303] 0    [main] INFO  com.gk.app.AppStart  - config.xml
+[2016-03-21 09:53:54,308] 5    [main] INFO  com.gk.app.AppStart  - trying to load file config
+[2016-03-21 09:53:54,368] 65   [main] INFO  com.gk.app.AppStart  - file config successfully processed
+[2016-03-21 09:53:54,368] 65   [main] INFO  com.gk.app.AppStart  - get Config From ConfigurationManager

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="ehcache.xsd"
+         updateCheck="true" monitoring="autodetect"
+         dynamicConfig="true">
+    
+    
+    <diskStore path="java.io.tmpdir"/>
+
+    <transactionManagerLookup class="net.sf.ehcache.transaction.manager.DefaultTransactionManagerLookup"
+                              properties="jndiName=java:/TransactionManager" propertySeparator=";"/>
+    
+    <cacheManagerEventListenerFactory class="" properties=""/>
+    
+    <cacheManagerPeerProviderFactory
+        class="net.sf.ehcache.distribution.RMICacheManagerPeerProviderFactory"
+        properties="peerDiscovery=automatic,
+                        multicastGroupAddress=230.0.0.1,
+                        multicastGroupPort=4446, timeToLive=1"
+        propertySeparator=","
+    />
+    
+    <cacheManagerPeerListenerFactory
+        class="net.sf.ehcache.distribution.RMICacheManagerPeerListenerFactory"/>
+    
+    <defaultCache
+        maxEntriesLocalHeap="10000"
+        eternal="false"
+        timeToIdleSeconds="120"
+        timeToLiveSeconds="120"
+        diskSpoolBufferSizeMB="30"
+        maxEntriesLocalDisk="10000000"
+        diskExpiryThreadIntervalSeconds="120"
+        memoryStoreEvictionPolicy="LRU">
+        <persistence strategy="localTempSwap"/>
+    </defaultCache>
+
+    <cache name="myCache"
+           maxEntriesLocalHeap="10000"          
+           eternal="false"           
+           timeToIdleSeconds="180"
+           timeToLiveSeconds="180"
+           overflowToDisk="false"
+           diskPersistent="false"
+           memoryStoreEvictionPolicy="LRU" />
+    <!--
+    Sample cache named sampleCache2
+    This cache has a maximum of 1000 elements in memory. There is no overflow to disk, so 1000
+    is also the maximum cache size. Note that when a cache is eternal, timeToLive and
+    timeToIdle are not used and do not need to be specified.
+    -->
+    <cache name="Cacheforever"
+       maxEntriesLocalHeap="1000"
+       eternal="true"
+       memoryStoreEvictionPolicy="FIFO"
+    />
+</ehcache>

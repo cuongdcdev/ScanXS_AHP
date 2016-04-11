@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<properties>
+    <category name="appconfig">
+        <property name="debug" value="1" />
+    </category>   
+    <category name="XSDBPool">
+        <property name="driver" value="com.mysql.jdbc.Driver" />
+        <property name="url" value="jdbc:mysql://localhost:3306/xo_so?useUnicode=true&amp;characterEncoding=UTF-8" />
+        <property name="user" value="root" />
+        <property name="pass" value="root" />
+        <property name="max_connection" value="5"/>
+        <property name="init_connection" value="3"/>
+        <property name="time_out" value="180"/>
+    </category>
+    <category name="xsConfig">
+        <property name="RE_RUN" value="0" />
+        <property name="BACK_DATE" value="2" />
+    </category>    
+</properties>
